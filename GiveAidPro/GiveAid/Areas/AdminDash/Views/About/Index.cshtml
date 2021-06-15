@@ -1,0 +1,104 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_About>
+
+@{
+    ViewBag.Title = "About Us";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.About_Us)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Career_With_Us)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Our_Mission)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.What_We_Do)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @{
+                                    string abt  = "";
+                                    if (item.About_Us.Length > 40)
+                                    {
+                                        abt = item.About_Us.Substring(0, 40) + "...";
+                                    }
+                                    else
+                                    {
+                                        abt = item.About_Us;
+                                    }
+
+                                }
+                                <span>@abt</span><br />
+                            </td>
+                            <td>
+                                @{
+                                    string car = "";
+                                    if (item.Career_With_Us.Length > 40)
+                                    {
+                                        car = item.Career_With_Us.Substring(0, 40) + "...";
+                                    }
+                                    else
+                                    {
+                                        car = item.Career_With_Us;
+                                    }
+
+                                }
+                                <span>@car</span><br />
+                            </td>
+                            <td>
+                            @{
+                                string mis = "";
+                                if (item.Our_Mission.Length > 40)
+                                {
+                                    mis = item.Career_With_Us.Substring(0, 40) + "...";
+                                }
+                                else
+                                {
+                                    mis = item.Career_With_Us;
+                                }
+
+                            }
+                            <span>@mis</span><br />
+                            </td>
+                            <td>
+                                @{
+                                    string wedo = "";
+                                    if (item.What_We_Do.Length > 40)
+                                    {
+                                        wedo = item.What_We_Do.Substring(0, 40) + "...";
+                                    }
+                                    else
+                                    {
+                                        wedo = item.What_We_Do;
+                                    }
+
+                                }
+                                <span>@wedo</span><br />
+                            </td>
+                            <td>
+                                <a href="/AdminDash/About/Edit/@item.PK_ID" class="btn btn-outline-primary btn-sm">Edit</a>
+                                <a href="/AdminDash/About/Details/@item.PK_ID" class="btn btn-outline-primary btn-sm">Details</a>
+                            </td>
+                        </tr>
+                        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

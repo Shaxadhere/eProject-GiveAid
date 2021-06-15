@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_GiveAidProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_About">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="What We Do" Type="varchar" MaxLength="2500" />
+    <Property Name="Our Mission" Type="varchar" MaxLength="2500" />
+    <Property Name="Career With Us" Type="varchar" MaxLength="2500" />
+    <Property Name="About Us" Type="varchar" MaxLength="2500" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Activity">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="2500" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tbl_Donation">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_User" Type="int" />
+    <Property Name="FK_NGO" Type="int" />
+    <Property Name="FK_DonationCause" Type="int" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_DonationCause">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DonationCauseName" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="2500" />
+  </EntityType>
+  <EntityType Name="tbl_DonationCauseNGO">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_DonationCause" Type="int" />
+    <Property Name="FK_NGO" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Gallery">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_IntrestActivities">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_User" Type="int" />
+    <Property Name="FK_Activity" Type="int" />
+    <Property Name="Message" Type="varchar" MaxLength="2500" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_NGO">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NGOName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="varchar" MaxLength="1000" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+    <Property Name="Fk_DonationCause" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_OurAchievements">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="2500" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Partner">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerName" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="250" />
+    <Property Name="Logo" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="2500" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Position">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_QnA">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_User" Type="int" />
+    <Property Name="Question" Type="varchar" MaxLength="2500" />
+    <Property Name="Answer" Type="varchar" MaxLength="2500" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_TeamMember">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="FK_Position" Type="int" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" />
+    <Property Name="Picture" Type="varchar" MaxLength="1000" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="FK_UserType" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_UserType">
+    <Key>
+      <PropertyRef Name="PK_ID" />
+    </Key>
+    <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeName" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <Association Name="FK__tbl_Donat__FK_Do__5441852A">
+    <End Role="tbl_DonationCause" Type="Self.tbl_DonationCause" Multiplicity="0..1" />
+    <End Role="tbl_Donation" Type="Self.tbl_Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DonationCause">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_Donation">
+        <PropertyRef Name="FK_DonationCause" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__FK_Do__571DF1D5">
+    <End Role="tbl_DonationCause" Type="Self.tbl_DonationCause" Multiplicity="0..1" />
+    <End Role="tbl_DonationCauseNGO" Type="Self.tbl_DonationCauseNGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DonationCause">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_DonationCauseNGO">
+        <PropertyRef Name="FK_DonationCause" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__FK_NG__5535A963">
+    <End Role="tbl_NGO" Type="Self.tbl_NGO" Multiplicity="0..1" />
+    <End Role="tbl_Donation" Type="Self.tbl_Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_NGO">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_Donation">
+        <PropertyRef Name="FK_NGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__FK_NG__5812160E">
+    <End Role="tbl_NGO" Type="Self.tbl_NGO" Multiplicity="0..1" />
+    <End Role="tbl_DonationCauseNGO" Type="Self.tbl_DonationCauseNGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_NGO">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_DonationCauseNGO">
+        <PropertyRef Name="FK_NGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__FK_Us__5629CD9C">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_Donation" Type="Self.tbl_Donation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_Donation">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Intre__FK_Us__59063A47">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_IntrestActivities" Type="Self.tbl_IntrestActivities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_IntrestActivities">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_NGO__Fk_Dona__59FA5E80">
+    <End Role="tbl_DonationCause" Type="Self.tbl_DonationCause" Multiplicity="0..1" />
+    <End Role="tbl_NGO" Type="Self.tbl_NGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DonationCause">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_NGO">
+        <PropertyRef Name="Fk_DonationCause" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_QnA__FK_User__5AEE82B9">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_QnA" Type="Self.tbl_QnA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_QnA">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TeamM__FK_Po__5BE2A6F2">
+    <End Role="tbl_Position" Type="Self.tbl_Position" Multiplicity="0..1" />
+    <End Role="tbl_TeamMember" Type="Self.tbl_TeamMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Position">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_TeamMember">
+        <PropertyRef Name="FK_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_User__FK_Use__5CD6CB2B">
+    <End Role="tbl_UserType" Type="Self.tbl_UserType" Multiplicity="0..1" />
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserType">
+        <PropertyRef Name="PK_ID" />
+      </Principal>
+      <Dependent Role="tbl_User">
+        <PropertyRef Name="FK_UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_GiveAidProModelStoreContainer">
+    <EntitySet Name="tbl_About" EntityType="Self.tbl_About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Activity" EntityType="Self.tbl_Activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Donation" EntityType="Self.tbl_Donation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DonationCause" EntityType="Self.tbl_DonationCause" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DonationCauseNGO" EntityType="Self.tbl_DonationCauseNGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Gallery" EntityType="Self.tbl_Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_IntrestActivities" EntityType="Self.tbl_IntrestActivities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_NGO" EntityType="Self.tbl_NGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_OurAchievements" EntityType="Self.tbl_OurAchievements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Partner" EntityType="Self.tbl_Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Position" EntityType="Self.tbl_Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_QnA" EntityType="Self.tbl_QnA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TeamMember" EntityType="Self.tbl_TeamMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserType" EntityType="Self.tbl_UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_Donat__FK_Do__5441852A" Association="Self.FK__tbl_Donat__FK_Do__5441852A">
+      <End Role="tbl_DonationCause" EntitySet="tbl_DonationCause" />
+      <End Role="tbl_Donation" EntitySet="tbl_Donation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__FK_Do__571DF1D5" Association="Self.FK__tbl_Donat__FK_Do__571DF1D5">
+      <End Role="tbl_DonationCause" EntitySet="tbl_DonationCause" />
+      <End Role="tbl_DonationCauseNGO" EntitySet="tbl_DonationCauseNGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__FK_NG__5535A963" Association="Self.FK__tbl_Donat__FK_NG__5535A963">
+      <End Role="tbl_NGO" EntitySet="tbl_NGO" />
+      <End Role="tbl_Donation" EntitySet="tbl_Donation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__FK_NG__5812160E" Association="Self.FK__tbl_Donat__FK_NG__5812160E">
+      <End Role="tbl_NGO" EntitySet="tbl_NGO" />
+      <End Role="tbl_DonationCauseNGO" EntitySet="tbl_DonationCauseNGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__FK_Us__5629CD9C" Association="Self.FK__tbl_Donat__FK_Us__5629CD9C">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_Donation" EntitySet="tbl_Donation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Intre__FK_Us__59063A47" Association="Self.FK__tbl_Intre__FK_Us__59063A47">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_IntrestActivities" EntitySet="tbl_IntrestActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_NGO__Fk_Dona__59FA5E80" Association="Self.FK__tbl_NGO__Fk_Dona__59FA5E80">
+      <End Role="tbl_DonationCause" EntitySet="tbl_DonationCause" />
+      <End Role="tbl_NGO" EntitySet="tbl_NGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_QnA__FK_User__5AEE82B9" Association="Self.FK__tbl_QnA__FK_User__5AEE82B9">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_QnA" EntitySet="tbl_QnA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TeamM__FK_Po__5BE2A6F2" Association="Self.FK__tbl_TeamM__FK_Po__5BE2A6F2">
+      <End Role="tbl_Position" EntitySet="tbl_Position" />
+      <End Role="tbl_TeamMember" EntitySet="tbl_TeamMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_User__FK_Use__5CD6CB2B" Association="Self.FK__tbl_User__FK_Use__5CD6CB2B">
+      <End Role="tbl_UserType" EntitySet="tbl_UserType" />
+      <End Role="tbl_User" EntitySet="tbl_User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

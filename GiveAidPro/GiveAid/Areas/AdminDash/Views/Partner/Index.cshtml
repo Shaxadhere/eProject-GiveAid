@@ -1,0 +1,87 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_Partner>
+
+@{
+    ViewBag.Title = "All Partners";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            @Ajax.ActionLink("Add New", "Create", "Partner",
+                            new AjaxOptions()
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "modal-container"
+                            },
+                            new
+                            {
+                                @class = "btn btn-outline-success btn-sm"
+                            })
+                        </th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">@Html.ActionLink("Trash Box", "TrashBox", "Partner", new { @class = "btn btn-outline-dark btn-sm" })</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.PartnerName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Website)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Description)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.PartnerName</td>
+                            <td>@item.Website</td>
+                            <td>
+                                @{
+                                    string des = "";
+                                    if (item.Description.Length > 40)
+                                    {
+                                        des = item.Description.Substring(0, 40) + "...";
+                                    }
+                                    else
+                                    {
+                                        des = item.Description;
+                                    }
+
+                                }
+                                <span>@des</span><br />
+                            </td>
+                            <td>
+                                @Ajax.ActionLink("View Details", "Details", "Partner",
+                                   new { id = item.PK_ID },
+                                   new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "modal-container"
+                                   },
+                                   new
+                                   {
+                                       @class = "btn btn-outline-primary btn-sm"
+                                   })
+
+                            </td>
+                        </tr>
+                                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model GiveAid.Models.tbl_User
+@{
+    ViewBag.Title = "Signup";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Signup - GiveAid</title>
+
+    <link rel="stylesheet" href="~/Templates/Backend/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Templates/Backend/assets/vendor/fonts/circular-std/style.css">
+    <link rel="stylesheet" href="~/Templates/Backend/assets/libs/css/style.css">
+    <link rel="stylesheet" href="~/Templates/Backend/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+
+    @using (Html.BeginForm("Signup", "Account", FormMethod.Post, new { @class = "splash-container" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <form class="splash-container">
+            <div class="card">
+                <div class="card-header text-center">
+                    <a href="/">
+                        <img class="img-responsive" style="width: 40%" src="~/Templates/back.jpg" />
+                    </a>
+                    <br />
+                    <span class="splash-description">Please fill registration form.</span>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        @Html.EditorFor(reg => reg.FullName, new { htmlAttributes = new { @class = "form-control form-control-lg", @placeholder = "Full Name" } })
+                        @Html.ValidationMessageFor(reg => reg.FullName, "", new { @class = "text-danger" } )
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(reg => reg.Email, new { htmlAttributes = new { @class = "form-control form-control-lg", @placeholder = "Email Address" } })
+                        @Html.ValidationMessageFor(reg => reg.Email, "", new { @class = "text-danger" })
+                        @if (@ViewBag.msg != null)
+                        {
+                            <span class="field-validation-error text-danger" data-valmsg-for="Password" data-valmsg-replace="true">@ViewBag.msg</span>
+                        }
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(reg => reg.Password, new { htmlAttributes = new { @class = "form-control form-control-lg", @placeholder = "Password" } })
+                        @Html.ValidationMessageFor(reg => reg.Password, "", new { @class = "text-danger" } )
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(reg => reg.ConfirmPassword, new { htmlAttributes = new { @class = "form-control form-control-lg", @placeholder = "Confirm Password" } })
+                        @Html.ValidationMessageFor(reg => reg.ConfirmPassword, "", new { @class = "text-danger" } )
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" required="" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
+                        </label>
+                    </div>
+                    <div class="form-group pt-2">
+                        <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <p>Already member? <a href="/Account/Login" class="text-secondary">Login Here.</a></p>
+                </div>
+            </div>
+        </form>
+    }
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+</body>
+</html>

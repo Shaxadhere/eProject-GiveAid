@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_GiveAidModelStoreContainer" CdmEntityContainer="db_GiveAidEntities">
+    <EntitySetMapping Name="tbl_About">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_About">
+        <MappingFragment StoreEntitySet="tbl_About">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="What_We_Do" ColumnName="What We Do" />
+          <ScalarProperty Name="Our_Mission" ColumnName="Our Mission" />
+          <ScalarProperty Name="Career_With_Us" ColumnName="Career With Us" />
+          <ScalarProperty Name="About_Us" ColumnName="About Us" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Activity">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_Activity">
+        <MappingFragment StoreEntitySet="tbl_Activity">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Donation">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_Donation">
+        <MappingFragment StoreEntitySet="tbl_Donation">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
+          <ScalarProperty Name="FK_NGO" ColumnName="FK_NGO" />
+          <ScalarProperty Name="FK_DonationCause" ColumnName="FK_DonationCause" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DonationCause">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_DonationCause">
+        <MappingFragment StoreEntitySet="tbl_DonationCause">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="DonationCauseName" ColumnName="DonationCauseName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DonationCauseNGO">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_DonationCauseNGO">
+        <MappingFragment StoreEntitySet="tbl_DonationCauseNGO">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="FK_DonationCause" ColumnName="FK_DonationCause" />
+          <ScalarProperty Name="FK_NGO" ColumnName="FK_NGO" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gallery">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_Gallery">
+        <MappingFragment StoreEntitySet="tbl_Gallery">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_IntrestActivities">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_IntrestActivities">
+        <MappingFragment StoreEntitySet="tbl_IntrestActivities">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
+          <ScalarProperty Name="FK_Activity" ColumnName="FK_Activity" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_NGO">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_NGO">
+        <MappingFragment StoreEntitySet="tbl_NGO">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="NGOName" ColumnName="NGOName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Fk_DonationCause" ColumnName="Fk_DonationCause" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_OurAchievements">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_OurAchievements">
+        <MappingFragment StoreEntitySet="tbl_OurAchievements">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Partner">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_Partner">
+        <MappingFragment StoreEntitySet="tbl_Partner">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Position">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_Position">
+        <MappingFragment StoreEntitySet="tbl_Position">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_QnA">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_QnA">
+        <MappingFragment StoreEntitySet="tbl_QnA">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TeamMember">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_TeamMember">
+        <MappingFragment StoreEntitySet="tbl_TeamMember">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FK_Position" ColumnName="FK_Position" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_User">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_User">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FK_UserType" ColumnName="FK_UserType" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserType">
+      <EntityTypeMapping TypeName="db_GiveAidModel.tbl_UserType">
+        <MappingFragment StoreEntitySet="tbl_UserType">
+          <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

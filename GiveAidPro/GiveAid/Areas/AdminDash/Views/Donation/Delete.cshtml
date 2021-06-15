@@ -1,0 +1,72 @@
+﻿@model GiveAid.Models.tbl_Donation
+
+@{
+    ViewBag.Title = "Move Donation to Trash";
+    Layout = null;
+}
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@ViewBag.Title</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Amount)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Amount)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.tbl_User.FullName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.tbl_User.FullName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.tbl_NGO.NGOName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.tbl_NGO.NGOName)
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                @using (Ajax.BeginForm("Delete", "Donation", new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    OnSuccess = "Success",
+                }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="submit" value="Delete" class="btn btn-outline-primary btn-sm" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+    var Success = function (data) {
+        if (data.success == true) {
+            $('#myModal').modal('hide');
+            location.reload();
+        }
+        else {
+            alert("Deletion of the activity failed!");
+        }
+    }
+</script>
+

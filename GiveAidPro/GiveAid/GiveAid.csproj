@@ -1,0 +1,1499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05380EB2-4DF9-4635-B3EE-A93E24A65D22}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GiveAid</RootNamespace>
+    <AssemblyName>GiveAid</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\GiveAidPro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiveAidPro.edmx</DependentUpon>
+      <LastGenOutput>GiveAidPro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GiveAidPro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GiveAidPro.edmx</DependentUpon>
+      <LastGenOutput>GiveAidPro.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\User\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\User\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\web.config" />
+    <Content Include="Areas\AdminDash\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Home\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Donation\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Donation\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Donation\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Donation\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Donation\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Home\PopUp.cshtml" />
+    <Content Include="Areas\User\Views\QnA\Create.cshtml" />
+    <Content Include="Areas\User\Views\QnA\Details.cshtml" />
+    <Content Include="Areas\User\Views\QnA\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Create.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Delete.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Edit.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Index.cshtml" />
+    <Content Include="Areas\User\Views\Donation\Create.cshtml" />
+    <Content Include="Areas\User\Views\Donation\Index.cshtml" />
+    <Content Include="Areas\User\Views\Invite\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\DonationCause\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Gallery\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\OurAchievements\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Partner\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\TeamMember\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\Create.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\Delete.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\Details.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\Edit.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\Index.cshtml" />
+    <EntityDeploy Include="Models\GiveAidPro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GiveAidPro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GiveAidPro.edmx.diagram">
+      <DependentUpon>GiveAidPro.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\User\Views\IntrestActivities\MyIntrest.cshtml" />
+    <Content Include="Areas\AdminDash\Views\QnA\Answered.cshtml" />
+    <Content Include="Areas\User\Views\IntrestActivities\SendIntrest.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Activity\Restore.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Accounts\Settings.cshtml" />
+    <Content Include="Areas\User\Views\Accounts\Settings.cshtml" />
+    <Content Include="Areas\AdminDash\Views\Accounts\EditInfo.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\TrashBox.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\DetailsFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\Restore.cshtml" />
+    <Content Include="Areas\AdminDash\Views\NGO\DeleteFromTrash.cshtml" />
+    <Content Include="Areas\AdminDash\Views\User\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\User\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\About\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\tbl_About\Index.cshtml" />
+    <Content Include="Areas\AdminDash\Views\About\Details.cshtml" />
+    <Content Include="Areas\AdminDash\Views\About\Edit.cshtml" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\Popup.js" />
+    <Content Include="Templates\Account\css\main.css" />
+    <Content Include="Templates\Account\css\util.css" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Templates\Account\fonts\montserrat\OFL.txt" />
+    <Content Include="Templates\Account\images\icons\favicon.ico" />
+    <Content Include="Templates\Account\images\img-01.png" />
+    <Content Include="Templates\Account\index.html" />
+    <Content Include="Templates\Account\js\main.js" />
+    <Content Include="Templates\Account\vendor\animate\animate.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Templates\Account\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Templates\Account\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Templates\Account\vendor\bootstrap\js\popper.js" />
+    <Content Include="Templates\Account\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Templates\Account\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Templates\Account\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Templates\Account\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Templates\Account\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Templates\Account\vendor\select2\select2.css" />
+    <Content Include="Templates\Account\vendor\select2\select2.js" />
+    <Content Include="Templates\Account\vendor\select2\select2.min.css" />
+    <Content Include="Templates\Account\vendor\select2\select2.min.js" />
+    <Content Include="Templates\Account\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Templates\back.jpg" />
+    <Content Include="Templates\Backend\assets\assets\images\background\img5.html" />
+    <Content Include="Templates\Backend\assets\images\avatar-1.jpg" />
+    <Content Include="Templates\Backend\assets\images\avatar-2.jpg" />
+    <Content Include="Templates\Backend\assets\images\avatar-3.jpg" />
+    <Content Include="Templates\Backend\assets\images\avatar-4.jpg" />
+    <Content Include="Templates\Backend\assets\images\avatar-5.jpg" />
+    <Content Include="Templates\Backend\assets\images\bitbucket.png" />
+    <Content Include="Templates\Backend\assets\images\card-img-1.jpg" />
+    <Content Include="Templates\Backend\assets\images\card-img-2.jpg" />
+    <Content Include="Templates\Backend\assets\images\card-img-3.jpg" />
+    <Content Include="Templates\Backend\assets\images\card-img.jpg" />
+    <Content Include="Templates\Backend\assets\images\down-arrow.png" />
+    <Content Include="Templates\Backend\assets\images\drag-indicator.png" />
+    <Content Include="Templates\Backend\assets\images\dribbble.png" />
+    <Content Include="Templates\Backend\assets\images\dropbox.png" />
+    <Content Include="Templates\Backend\assets\images\eco-product-img-1.png" />
+    <Content Include="Templates\Backend\assets\images\eco-product-img-2.png" />
+    <Content Include="Templates\Backend\assets\images\eco-product-img-3.png" />
+    <Content Include="Templates\Backend\assets\images\eco-product-img-4.png" />
+    <Content Include="Templates\Backend\assets\images\eco-slider-img-1.png" />
+    <Content Include="Templates\Backend\assets\images\eco-slider-img-2.png" />
+    <Content Include="Templates\Backend\assets\images\eco-slider-img-3.png" />
+    <Content Include="Templates\Backend\assets\images\error-img.png" />
+    <Content Include="Templates\Backend\assets\images\github.png" />
+    <Content Include="Templates\Backend\assets\images\loader.svg" />
+    <Content Include="Templates\Backend\assets\images\logo.png" />
+    <Content Include="Templates\Backend\assets\images\mail_chimp.png" />
+    <Content Include="Templates\Backend\assets\images\product-pic-2.jpg" />
+    <Content Include="Templates\Backend\assets\images\product-pic-3.jpg" />
+    <Content Include="Templates\Backend\assets\images\product-pic-4.jpg" />
+    <Content Include="Templates\Backend\assets\images\product-pic.jpg" />
+    <Content Include="Templates\Backend\assets\images\slack.png" />
+    <Content Include="Templates\Backend\assets\images\switch.png" />
+    <Content Include="Templates\Backend\assets\libs\css\style.css" />
+    <Content Include="Templates\Backend\assets\libs\js\dashboard-ecommerce.js" />
+    <Content Include="Templates\Backend\assets\libs\js\dashboard-finance.js" />
+    <Content Include="Templates\Backend\assets\libs\js\dashboard-influencer.js" />
+    <Content Include="Templates\Backend\assets\libs\js\dashboard-sales.js" />
+    <Content Include="Templates\Backend\assets\libs\js\gmaps.min.js" />
+    <Content Include="Templates\Backend\assets\libs\js\google_map.js" />
+    <Content Include="Templates\Backend\assets\libs\js\jvectormap.custom.js" />
+    <Content Include="Templates\Backend\assets\libs\js\main-js.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.css" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.png" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\jquery-asColorPicker\dist\jquery-asColorPicker.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\jquery-asColor\dist\jquery-asColor.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-colorpicker\jquery-asGradient\dist\jquery-asGradient.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap-select\js\bootstrap-select.js" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\c3charts\c3.css" />
+    <Content Include="Templates\Backend\assets\vendor\charts\c3charts\c3.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\c3charts\C3chartjs.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\c3charts\d3-5.4.0.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\chartist-bundle\chartist-plugin-threshold.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\chartist-bundle\chartist.css" />
+    <Content Include="Templates\Backend\assets\vendor\charts\chartist-bundle\chartist.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\chartist-bundle\Chartistjs.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\charts-bundle\Chart.bundle.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\charts-bundle\chartjs.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\morris-bundle\morris.css" />
+    <Content Include="Templates\Backend\assets\vendor\charts\morris-bundle\morris.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\morris-bundle\morrisjs.html" />
+    <Content Include="Templates\Backend\assets\vendor\charts\morris-bundle\Morrisjs.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\morris-bundle\raphael.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\sparkline\jquery.sparkline.js" />
+    <Content Include="Templates\Backend\assets\vendor\charts\sparkline\spark-js.js" />
+    <Content Include="Templates\Backend\assets\vendor\cropper\dist\cropper-int.js" />
+    <Content Include="Templates\Backend\assets\vendor\cropper\dist\cropper.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\cropper\dist\cropper.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\custom-js\jquery.multi-select.html" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\css\buttons.bootstrap4.css" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\css\dataTables.bootstrap4.css" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\css\select.bootstrap4.css" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\jquery.dataTables.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\jquery.dataTables.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\js\buttons.bootstrap4.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\js\data-table.js" />
+    <Content Include="Templates\Backend\assets\vendor\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\datepicker\datepicker.js" />
+    <Content Include="Templates\Backend\assets\vendor\datepicker\moment.js" />
+    <Content Include="Templates\Backend\assets\vendor\datepicker\tempusdominus-bootstrap-4.css" />
+    <Content Include="Templates\Backend\assets\vendor\datepicker\tempusdominus-bootstrap-4.js" />
+    <Content Include="Templates\Backend\assets\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Templates\Backend\assets\vendor\dropzone\dropzone.js" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\style.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flag-icon.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ad.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ae.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\af.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ag.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ai.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\al.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\am.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ao.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\aq.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ar.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\as.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\at.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\au.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\aw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ax.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\az.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ba.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bb.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bd.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\be.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bi.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bj.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bo.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bq.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\br.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bs.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\by.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\bz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ca.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cd.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ch.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ci.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ck.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\co.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cx.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cy.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\cz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\de.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\dj.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\dk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\dm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\do.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\dz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ec.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ee.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\eg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\eh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\er.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\es.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\et.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fi.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fj.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fo.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\fr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ga.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gb.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gd.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ge.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gi.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gp.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gq.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gs.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\gy.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\hk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\hm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\hn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\hr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ht.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\hu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\id.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ie.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\il.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\im.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\in.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\io.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\iq.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ir.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\is.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\it.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\je.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\jm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\jo.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\jp.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ke.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ki.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\km.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kp.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ky.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\kz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\la.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lb.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\li.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ls.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\lv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ly.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ma.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\md.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\me.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ml.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mo.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mp.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mq.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ms.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mx.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\my.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\mz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\na.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ne.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ng.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ni.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\no.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\np.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\nz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\om.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pa.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pe.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ph.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ps.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\pw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\py.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\qa.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\re.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ro.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\rs.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ru.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\rw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sa.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sb.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sd.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\se.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sh.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\si.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sj.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\so.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ss.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\st.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sx.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sy.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\sz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\td.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\th.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tj.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tk.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tl.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\to.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tr.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tv.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\tz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ua.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ug.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\um.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\us.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\uy.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\uz.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\va.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\vc.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ve.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\vg.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\vi.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\vn.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\vu.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\wf.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ws.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\ye.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\yt.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\za.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\zm.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\flag-icon-css\flags\zw.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\css\all.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\css\fontawesome-all.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.html" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.html" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.html" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\css\materialdesignicons.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.html" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.html" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\fonts\themify9f249f24.svg" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\themify-icons.css" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\weather-icons\css\weather-icons.min.css" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\css\fullcalendar.css" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\css\fullcalendar.print.css" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\js\calendar.js" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\js\fullcalendar.js" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\js\jquery-ui.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\full-calendar\js\moment.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\gauge\gauge.js" />
+    <Content Include="Templates\Backend\assets\vendor\gauge\gauge.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\inputmask\css\inputmask.css" />
+    <Content Include="Templates\Backend\assets\vendor\inputmask\js\jquery.inputmask.bundle.js" />
+    <Content Include="Templates\Backend\assets\vendor\jquery\jquery-3.3.1.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-2.0.2.css" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-2.0.2.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-au-mill.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-in-mill.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-uk-mill-en.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Templates\Backend\assets\vendor\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Templates\Backend\assets\vendor\multi-select\css\multi-select.css" />
+    <Content Include="Templates\Backend\assets\vendor\multi-select\js\jquery.multi-select.js" />
+    <Content Include="Templates\Backend\assets\vendor\parsley\parsley.js" />
+    <Content Include="Templates\Backend\assets\vendor\select2\css\select2.css" />
+    <Content Include="Templates\Backend\assets\vendor\select2\js\select2.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\shortable-nestable\jquery.nestable.js" />
+    <Content Include="Templates\Backend\assets\vendor\shortable-nestable\sort-nest.js" />
+    <Content Include="Templates\Backend\assets\vendor\shortable-nestable\Sortable.min.js" />
+    <Content Include="Templates\Backend\assets\vendor\slimscroll\jquery.slimscroll.js" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\css\summernote-bs4.css" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\js\summernote-bs4.js" />
+    <Content Include="Templates\Backend\assets\vendor\timeline\img\cd-icon-location.svg" />
+    <Content Include="Templates\Backend\assets\vendor\timeline\img\cd-icon-movie.svg" />
+    <Content Include="Templates\Backend\assets\vendor\timeline\img\cd-icon-picture.svg" />
+    <Content Include="Templates\Backend\assets\vendor\timeline\js\main.js" />
+    <Content Include="Templates\Backend\assets\vendor\vector-map\jqvmap.css" />
+    <Content Include="Templates\Backend\dashboard-finance.html" />
+    <Content Include="Templates\Backend\dashboard-influencer.html" />
+    <Content Include="Templates\Backend\dashboard-sales.html" />
+    <Content Include="Templates\Backend\ecommerce-product-checkout.html" />
+    <Content Include="Templates\Backend\ecommerce-product-single.html" />
+    <Content Include="Templates\Backend\ecommerce-product.html" />
+    <Content Include="Templates\Backend\index.html" />
+    <Content Include="Templates\Backend\influencer-finder.html" />
+    <Content Include="Templates\Backend\influencer-profile.html" />
+    <Content Include="Templates\Backend\pages\404-page.html" />
+    <Content Include="Templates\Backend\pages\accordions.html" />
+    <Content Include="Templates\Backend\pages\blank-page-header.html" />
+    <Content Include="Templates\Backend\pages\blank-page.html" />
+    <Content Include="Templates\Backend\pages\bootstrap-select.html" />
+    <Content Include="Templates\Backend\pages\calendar.html" />
+    <Content Include="Templates\Backend\pages\cards.html" />
+    <Content Include="Templates\Backend\pages\carousel.html" />
+    <Content Include="Templates\Backend\pages\chart-c3.html" />
+    <Content Include="Templates\Backend\pages\chart-chartist.html" />
+    <Content Include="Templates\Backend\pages\chart-charts.html" />
+    <Content Include="Templates\Backend\pages\chart-gauge.html" />
+    <Content Include="Templates\Backend\pages\chart-morris.html" />
+    <Content Include="Templates\Backend\pages\chart-sparkline.html" />
+    <Content Include="Templates\Backend\pages\color-picker.html" />
+    <Content Include="Templates\Backend\pages\cropped.html" />
+    <Content Include="Templates\Backend\pages\cropper-image.html" />
+    <Content Include="Templates\Backend\pages\data-tables.html" />
+    <Content Include="Templates\Backend\pages\datepicker.html" />
+    <Content Include="Templates\Backend\pages\email-compose.html" />
+    <Content Include="Templates\Backend\pages\email-details.html" />
+    <Content Include="Templates\Backend\pages\forgot-password.html" />
+    <Content Include="Templates\Backend\pages\form-elements.html" />
+    <Content Include="Templates\Backend\pages\form-validation.html" />
+    <Content Include="Templates\Backend\pages\general-table.html" />
+    <Content Include="Templates\Backend\pages\general.html" />
+    <Content Include="Templates\Backend\pages\icon-flag.html" />
+    <Content Include="Templates\Backend\pages\icon-fontawesome.html" />
+    <Content Include="Templates\Backend\pages\icon-material.html" />
+    <Content Include="Templates\Backend\pages\icon-simple-lineicon.html" />
+    <Content Include="Templates\Backend\pages\icon-themify.html" />
+    <Content Include="Templates\Backend\pages\icon-weather.html" />
+    <Content Include="Templates\Backend\pages\inbox.html" />
+    <Content Include="Templates\Backend\pages\index.html" />
+    <Content Include="Templates\Backend\pages\invoice.html" />
+    <Content Include="Templates\Backend\pages\listgroup.html" />
+    <Content Include="Templates\Backend\pages\login.html" />
+    <Content Include="Templates\Backend\pages\map-google.html" />
+    <Content Include="Templates\Backend\pages\map-vector.html" />
+    <Content Include="Templates\Backend\pages\media-object.html" />
+    <Content Include="Templates\Backend\pages\message-chat.html" />
+    <Content Include="Templates\Backend\pages\multiselect.html" />
+    <Content Include="Templates\Backend\pages\pages-app.html" />
+    <Content Include="Templates\Backend\pages\pages-sign-up.html" />
+    <Content Include="Templates\Backend\pages\pricing.html" />
+    <Content Include="Templates\Backend\pages\sign-up.html" />
+    <Content Include="Templates\Backend\pages\sortable-nestable-lists.html" />
+    <Content Include="Templates\Backend\pages\tabs.html" />
+    <Content Include="Templates\Backend\pages\timeline.html" />
+    <Content Include="Templates\Backend\pages\typography.html" />
+    <Content Include="Templates\Backend\pages\user-profile.html" />
+    <Content Include="Templates\Backend\pages\widgets.html" />
+    <Content Include="Templates\Error\index.html" />
+    <Content Include="Templates\Error\style.css" />
+    <Content Include="Templates\front.jpg" />
+    <Content Include="Templates\Frontend\blog-details.html" />
+    <Content Include="Templates\Frontend\charity-doc\css\font-awesome.min.css" />
+    <Content Include="Templates\Frontend\charity-doc\css\main.css" />
+    <Content Include="Templates\Frontend\charity-doc\css\normalize.min.css" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\Frontend\charity-doc\img\logo.png" />
+    <Content Include="Templates\Frontend\charity-doc\index.html" />
+    <Content Include="Templates\Frontend\charity-doc\js\custom.js" />
+    <Content Include="Templates\Frontend\charity-doc\js\jquery-1.11.0.min.js" />
+    <Content Include="Templates\Frontend\charity-doc\js\jquery.nav.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCore.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="Templates\Frontend\css\bootstrap.css" />
+    <Content Include="Templates\Frontend\css\font-awesome.min.css" />
+    <Content Include="Templates\Frontend\css\linearicons.css" />
+    <Content Include="Templates\Frontend\css\magnific-popup.css" />
+    <Content Include="Templates\Frontend\css\main.css" />
+    <Content Include="Templates\Frontend\css\nice-select.css" />
+    <Content Include="Templates\Frontend\css\owl.carousel.css" />
+    <Content Include="Templates\Frontend\css\owl.theme.default.min.css" />
+    <Content Include="Templates\Frontend\css\template.css" />
+    <Content Include="Templates\Frontend\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\Frontend\fonts\Linearicons-Free.svg" />
+    <Content Include="Templates\Frontend\img\about-img.jpg" />
+    <Content Include="Templates\Frontend\img\aboutbanner.jpg" />
+    <Content Include="Templates\Frontend\img\brain.jpg" />
+    <Content Include="Templates\Frontend\img\cause-1.jpg" />
+    <Content Include="Templates\Frontend\img\cause-2.jpg" />
+    <Content Include="Templates\Frontend\img\cause-3.jpg" />
+    <Content Include="Templates\Frontend\img\cause-4.jpg" />
+    <Content Include="Templates\Frontend\img\cause-5.jpg" />
+    <Content Include="Templates\Frontend\img\cause-6.jpg" />
+    <Content Include="Templates\Frontend\img\directrelief.jpg" />
+    <Content Include="Templates\Frontend\img\edhi.jpg" />
+    <Content Include="Templates\Frontend\img\food.jpg" />
+    <Content Include="Templates\Frontend\img\header-bg.jpg" />
+    <Content Include="Templates\Frontend\img\health.jpg" />
+    <Content Include="Templates\Frontend\img\image_1.jpg" />
+    <Content Include="Templates\Frontend\img\image_2.jpg" />
+    <Content Include="Templates\Frontend\img\image_3.jpg" />
+    <Content Include="Templates\Frontend\img\khanacademy.jpg" />
+    <Content Include="Templates\Frontend\img\logo.png" />
+    <Content Include="Templates\Frontend\img\logoo.png" />
+    <Content Include="Templates\Frontend\img\mastercard.png" />
+    <Content Include="Templates\Frontend\img\p1.jpg" />
+    <Content Include="Templates\Frontend\img\p2.jpg" />
+    <Content Include="Templates\Frontend\img\p3.jpg" />
+    <Content Include="Templates\Frontend\img\payment.png" />
+    <Content Include="Templates\Frontend\img\saylani.jpg" />
+    <Content Include="Templates\Frontend\img\endingpoverty.jpg" />
+    <Content Include="Templates\Frontend\img\Shehzad.jpg" />
+    <Content Include="Templates\Frontend\img\umair.jpg" />
+    <Content Include="Templates\Frontend\img\userdefault.jpeg" />
+    <Content Include="Templates\Frontend\img\v1.jpg" />
+    <Content Include="Templates\Frontend\img\v2.jpg" />
+    <Content Include="Templates\Frontend\img\v3.jpg" />
+    <Content Include="Templates\Frontend\img\v4.jpg" />
+    <Content Include="Templates\Frontend\img\water.jpg" />
+    <Content Include="Templates\Frontend\index.html" />
+    <Content Include="Templates\Frontend\js\countdown.js" />
+    <Content Include="Templates\Frontend\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Templates\Frontend\js\jquery.magnific-popup.min.js" />
+    <Content Include="Templates\Frontend\js\jquery.nice-select.min.js" />
+    <Content Include="Templates\Frontend\js\jquery.sticky.js" />
+    <Content Include="Templates\Frontend\js\main.js" />
+    <Content Include="Templates\Frontend\js\owl.carousel.min.js" />
+    <Content Include="Templates\Frontend\js\parallax.min.js" />
+    <Content Include="Templates\Frontend\js\vendor\bootstrap.min.js" />
+    <Content Include="Templates\Frontend\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Templates\Frontend\css\main1.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._index.html" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._index.html" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\css\._font-awesome.min.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\css\._main.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\css\._normalize.min.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._fontawesome-webfont.svg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\img\._logo.png" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\js\._custom.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\js\._jquery-1.11.0.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\js\._jquery.nav.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shAutoloader.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushAppleScript.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushAS3.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushBash.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushColdFusion.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushCpp.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushCSharp.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushCss.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushDelphi.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushDiff.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushErlang.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushGroovy.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushJava.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushJavaFX.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushJScript.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushPerl.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushPhp.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushPlain.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushPowerShell.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushPython.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushRuby.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushSass.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushScala.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushSql.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushVb.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shBrushXml.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shCore.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\scripts\._shLegacy.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCore.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreDefault.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreDjango.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreEclipse.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreEmacs.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreFadeToGrey.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreMDUltra.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreMidnight.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shCoreRDark.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeDefault.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeDjango.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeEclipse.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeEmacs.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeFadeToGrey.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeMDUltra.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeMidnight.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\styles\._shThemeRDark.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._bootstrap.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._font-awesome.min.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._linearicons.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._magnific-popup.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._main.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._nice-select.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._owl.carousel.css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._fontawesome-webfont.svg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._Linearicons-Free.svg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._about-img.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._header-bg.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._logo.png" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._p1.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._p2.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._p3.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._payment.png" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._v1.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._v2.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._v3.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._v4.jpg" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._countdown.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._jquery.ajaxchimp.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._jquery.magnific-popup.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._jquery.nice-select.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._jquery.sticky.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._main.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._owl.carousel.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._parallax.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\vendor\._bootstrap.min.js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\vendor\._jquery-2.2.4.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Templates\Frontend\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\css\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\Frontend\charity-doc\fonts\FontAwesome.otf" />
+    <Content Include="Templates\Frontend\charity-doc\img\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\js\.DS_Store" />
+    <Content Include="Templates\Frontend\charity-doc\syntax-highlighter\.DS_Store" />
+    <Content Include="Templates\Frontend\css\.DS_Store" />
+    <Content Include="Templates\Frontend\donate.php" />
+    <Content Include="Templates\Frontend\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\Frontend\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\Frontend\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\Frontend\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\Frontend\fonts\FontAwesome.otf" />
+    <Content Include="Templates\Frontend\fonts\Linearicons-Free.eot" />
+    <Content Include="Templates\Frontend\fonts\Linearicons-Free.ttf" />
+    <Content Include="Templates\Frontend\fonts\Linearicons-Free.woff" />
+    <Content Include="Templates\Frontend\fonts\Linearicons-Free.woff2" />
+    <Content Include="Templates\Frontend\img\.DS_Store" />
+    <Content Include="Templates\Frontend\js\.DS_Store" />
+    <Content Include="Templates\Frontend\scss\.DS_Store" />
+    <Content Include="Templates\Frontend\scss\bootstrap.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\.DS_Store" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_navbar-align.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_alert.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_badge.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_button-group.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_buttons.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_card.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_carousel.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_close.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_code.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_forms.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_functions.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_grid.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_images.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_input-group.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_list-group.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_media.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_mixins.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_modal.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_nav.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_navbar.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_pagination.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_popover.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_print.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_progress.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_reboot.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_tables.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_transitions.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_type.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_utilities.scss" />
+    <Content Include="Templates\Frontend\scss\bootstrap\_variables.scss" />
+    <Content Include="Templates\Frontend\scss\main.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_elements.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_flexbox.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_footer.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_header.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_home.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_mixins.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_reset.scss" />
+    <Content Include="Templates\Frontend\scss\theme\_variables.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\._charity-colorlib" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._charity-doc" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._donate.php" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._fonts" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._img" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\._scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._css" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._fonts" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._img" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._js" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\._syntax-highlighter" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\css\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._fontawesome-webfont.eot" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._fontawesome-webfont.woff" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\fonts\._FontAwesome.otf" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\img\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\js\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\._scripts" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\charity-doc\syntax-highlighter\._styles" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\css\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._fontawesome-webfont.eot" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._fontawesome-webfont.ttf" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._fontawesome-webfont.woff" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._fontawesome-webfont.woff2" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._FontAwesome.otf" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._Linearicons-Free.eot" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._Linearicons-Free.ttf" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._Linearicons-Free.woff" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\fonts\._Linearicons-Free.woff2" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\img\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\js\._vendor" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\._bootstrap" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\._bootstrap.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\._main.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\._theme" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\._.DS_Store" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\._mixins" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\._utilities" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__alert.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__badge.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__breadcrumb.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__button-group.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__buttons.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__card.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__carousel.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__close.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__code.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__custom-forms.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__dropdown.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__forms.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__functions.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__grid.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__images.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__input-group.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__jumbotron.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__list-group.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__media.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__mixins.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__modal.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__nav.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__navbar.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__pagination.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__popover.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__print.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__progress.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__reboot.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__tables.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__tooltip.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__transitions.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__type.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__utilities.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\.__variables.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__alert.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__background-variant.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__badge.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__border-radius.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__box-shadow.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__breakpoints.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__buttons.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__clearfix.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__float.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__forms.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__gradients.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__grid-framework.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__grid.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__hover.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__image.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__list-group.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__lists.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__nav-divider.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__navbar-align.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__pagination.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__reset-text.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__resize.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__screen-reader.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__size.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__table-row.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__text-emphasis.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__text-hide.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__text-truncate.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__transition.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\mixins\.__visibility.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__align.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__background.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__borders.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__clearfix.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__display.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__embed.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__flex.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__float.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__position.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__screenreaders.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__sizing.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__spacing.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__text.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\bootstrap\utilities\.__visibility.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__elements.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__flexbox.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__footer.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__header.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__home.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__mixins.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__reset.scss" />
+    <Content Include="Templates\Frontend\__MACOSX\charity-colorlib\scss\theme\.__variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminDash\AdminDashAreaRegistration.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\AboutController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\ActivityController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\DonationCauseController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\DonationController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\GalleryController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\HomeController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\NGOController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\OurAchievementsController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\PartnerController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\QnAController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\tbl_AboutController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\TeamMemberController.cs" />
+    <Compile Include="Areas\AdminDash\Controllers\UserController.cs" />
+    <Compile Include="Areas\User\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\User\Controllers\DonationController.cs" />
+    <Compile Include="Areas\User\Controllers\HomeController.cs" />
+    <Compile Include="Areas\User\Controllers\IntrestActivitiesController.cs" />
+    <Compile Include="Areas\User\Controllers\InviteController.cs" />
+    <Compile Include="Areas\User\Controllers\QnAController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\GiveAidPro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiveAidPro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiveAidPro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiveAidPro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GiveAidPro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invitation.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\tbl_About.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Activity.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Donation.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_DonationCause.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_DonationCauseNGO.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Gallery.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_IntrestActivities.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_NGO.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_OurAchievements.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Partner.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Position.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_QnA.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_TeamMember.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_User.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_UserType.cs">
+      <DependentUpon>GiveAidPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\FormAuthenticationAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-Black.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-BlackItalic.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-Bold.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-BoldItalic.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-Book.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-BookItalic.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-Medium.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\circular-std\CircularStd-MediumItalic.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.html.readme" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400d41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.html.readme" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400d41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.html.readme" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900d41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontd41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.html.readme" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99dc99.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.html.readme" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c824c82.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Iconsd41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\fonts\themify.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\fonts\themify.woff" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\fonts\themify9f249f24.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\themify-icons\fonts\themifyd41dd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\weather-icons\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Templates\Backend\assets\vendor\fonts\weather-icons\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\editor-fonts\summernote4c4d4c4d.eot" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\editor-fonts\summernote4c4d4c4d.ttf" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\editor-fonts\summernote4c4d4c4d.woff" />
+    <Content Include="Templates\Backend\assets\vendor\summernote\editor-fonts\summernoted41dd41d.eot" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Signup.cshtml" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Templates\Account\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Templates\Account\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Templates\Account\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Templates\Account\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Error\Unauthorize.cshtml" />
+    <Content Include="Views\Home\CauseDetails.cshtml" />
+    <Content Include="Views\Home\HelpCentre.cshtml" />
+    <Content Include="Views\Account\Settings.cshtml" />
+    <Content Include="Views\Account\EditInfo.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminDash\Models\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4711</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4711/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿@model GiveAid.Models.tbl_Donation
+
+@{
+    ViewBag.Title = "Detailed View";
+    Layout = null;
+}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@ViewBag.Title</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">@Html.DisplayFor(model => model.Amount)</h3>
+                            <p class="card-text">@Html.DisplayFor(model => model.tbl_User.FullName)</p>
+                            <p class="card-text">@Html.DisplayFor(model => model.tbl_NGO.NGOName)</p>
+                            <p class="card-text">@Html.DisplayFor(model => model.tbl_DonationCause.DonationCauseName)</p>
+                            <p class="card-text">@Html.DisplayFor(model => model.DateTime)</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onclick="location.reload();" class="btn btn-outline-primary">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+
+</script>

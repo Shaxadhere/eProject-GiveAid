@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_Gallery>
+@{
+    ViewBag.Title = "Trash Box";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col">Deleted Photos</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td><img class="img-responsive" style="width: 120px; height: 120px;" src="~/Templates/Frontend/img/@item.Picture" /></td>
+                            <td>@item.Title</td>
+                            <td></td>
+                            <td>
+                                @Ajax.ActionLink("View Details", "DetailsFromTrash", "Gallery",
+                                   new { id = item.PK_ID },
+                                   new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "modal-container"
+                                   },
+                                   new
+                                   {
+                                       @class = "btn btn-outline-primary btn-sm"
+                                   })
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

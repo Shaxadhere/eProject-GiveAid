@@ -1,0 +1,58 @@
+﻿@model GiveAid.Models.tbl_DonationCause
+
+@{
+    ViewBag.Title = "CauseDetails";
+}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1>
+                    Your Donation <br>
+                    is Others Inspiration
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start callto Area -->
+<section class="callto-area relative">
+    <div class="container">
+        <div class="row d-flex callto-wrap justify-content-between pt-40 pb-40">
+            <h3 class="text-white">Please Help them and Donate now</h3>
+            <a href="/User/Donation/Make" class="head-btn head-btn2 btn text-uppercase">Donate Now</a>
+        </div>
+    </div>
+</section>
+<!-- End callto Area -->
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="blog_details">
+                        <h3>
+                            @Html.DisplayFor(d=> d.DonationCauseName)
+                        </h3>
+                        <br />
+                        <br />
+                        <p class="excert">
+                            @Html.DisplayFor(d => d.Description)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget post_category_widget">
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->

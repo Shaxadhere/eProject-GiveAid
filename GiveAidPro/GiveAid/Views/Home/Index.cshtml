@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1>
+                    Your Donation <br>
+                    is Others Inspiration
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start callto Area -->
+<section class="callto-area relative">
+    <div class="container">
+        <div class="row d-flex callto-wrap justify-content-between pt-40 pb-40">
+            <h3 class="text-white">Please Help them and Donate now</h3>
+            <a href="/User/Donation/Index" class="head-btn head-btn2 btn text-uppercase">Donate Now</a>
+        </div>
+    </div>
+</section>
+<!-- End callto Area -->
+<!-- Start project Area -->
+<section class="project-area section-gap" id="causes">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 pb-80 header-text">
+                <h1>Causes We Handle</h1>
+                <p>
+                    Serving Humanity is the Spirit of All Religions, Help the needy and <br />God will help you
+                </p>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (var item in ViewBag.Causes)
+            {
+                <div class="col-lg-4 col-md-4 project-wrap">
+                    <div class="single-project">
+                        <div class="content">
+                            <a href="#" target="_blank">
+                                <div class="content-overlay"></div>
+                                <img class="content-image img-fluid d-block mx-auto" style="height:inherit" src="~/Templates/Frontend/img/@item.Picture" alt="">
+                                <div class="content-details fadeIn-bottom">
+                                    <a href="/User/Donation/Index" class="head-btn btn text-uppercase">Donate Now</a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <a href="#">
+                            <h2>@item.DonationCauseName</h2>
+                        </a>
+                        <p>
+                            @{
+                                string des = "";
+                                if (item.Description.Length > 160)
+                                {
+                                    des = item.Description.Substring(0, 160) + "...";
+                                }
+                                else
+                                {
+                                    des = item.Description;
+                                }
+
+                            }
+                            <span>@des</span><br />
+                            @{ 
+                                int Id = item.PK_ID;
+                            }
+                            @Html.ActionLink("read more", "CauseDetails", new { Id = item.PK_ID })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- End project Area -->
+<!-- Start about Area -->
+<section class="about-area" id="about">
+    <div class="container-fluid">
+        @foreach (var item in ViewBag.About)
+        {
+
+            <div class="row d-flex justify-content-end align-items-center">
+                <div class="col-lg-6 col-md-12 about-left no-padding">
+                    <img class="img-fluid" src="~/Templates/Frontend/img/about-img.jpg" alt="">
+                </div>
+                <div class="col-lg-6 col-md-12 about-right">
+                    <h1>
+                        A very Lovely Welcome <br>
+                        to our Company
+                    </h1>
+                    <p>
+                        @{
+                            string des = "";
+                            if (item.About_Us.Length > 400)
+                            {
+                                des = item.About_Us.Substring(0, 400) + "...";
+                            }
+                            else
+                            {
+                                des = item.About_Us;
+                            }
+
+                        }
+                        <span>@des</span>
+                    </p>
+                    <a class="primary-btn mt-20 text-uppercase " href="/Home/About">learn more<span class="lnr lnr-arrow-right"></span></a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!-- End about Area -->
+<!-- Start volunteer Area -->
+<section class="volunteer-area section-gap" id="helpcentre">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 pb-80 header-text">
+                <h1>Help Centre</h1>
+                <p>
+                    If you guys have any confession or query than you can raise it in<br />our help centre, some of the queries are here
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.HelpCentre)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-8 col-sm-8 col-8">
+                    <div class="card">
+                        <h5 class="card-header">@item.Question</h5>
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">@{
+                                        string des = "";
+                                        if (item.Answer.Length > 250)
+                                        {
+                                            des = item.Answer.Substring(0, 250) + "...";
+                                        }
+                                        else
+                                        {
+                                            des = item.Answer;
+                                        }
+
+                                    }
+                                    <span>@des</span><a href="/Home/HelpCentre">See more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- End volunteer Area -->
+<!-- Start our causes -->
+<section class="donate-area relative section-gap" style="background-image: url(../../Templates/Frontend/img/header-bg.jpg)" id="events">
+    <div class="overlay overlay-bg"></div>
+    <div class="col-md-7 heading-section ftco-animate text-center fadeInUp ftco-animated">
+        <h2 class="mb-4">Our Events</h2>
+        <p class="far_away">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+    </div>
+    <div class="owl-carousel owl-theme">
+        @foreach (var item in ViewBag.Activities)
+        {
+            <div class="item" style="width: 353px;margin-right: 30px;">
+                <div class="cause-entry">
+                    <a href="#" class="img" style="background-image: url(../../Templates/Frontend/img/@item.Picture);"></a>
+                    <div class="text p-3 p-md-4">
+                        <h3><a href="#">@item.Title</a></h3>
+                        <p>
+                            @{
+                                string des = "";
+                                if (item.Description.Length > 240)
+                                {
+                                     des= item.Description.Substring(0, 240)+"...";
+                                }
+                                else
+                                {
+                                    des=item.Description;
+                                }
+                               
+                            }
+                            <span>@des</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+                                }
+    </div>
+</section>
+<!-- End our causes -->
+<!--star our partners-->
+<section class="project-area section-gap" id="partners">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 pb-80 header-text">
+                <h1>Our Partners</h1>
+                <p>
+                    These are some of our partners those are helping us working together to help the needy and trying our best to<br />
+                    provide the essentials of life.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.Partners)
+            {
+
+                <div class="col-lg-3 col-md-3 project-wrap">
+                    <div class="single-project" style="height:225px;overflow:hidden;">
+                        <div class="content"style="height:225px;overflow:hidden;">
+                            <a href="#" target="_blank">
+                                <div class="content-overlay"style="height:225px;overflow:hidden;"></div>
+                                <img style="object-fit:fill;" class="content-image img-fluid img-responsive d-block mx-auto;" src="~/Templates/Frontend/img/@item.Logo" alt="">
+                            </a>
+                            <div class="content-details fadeIn-bottom">
+                                <a href="#" target="_blank">
+                                </a><a href="/User/Donation/Index" class="head-btn btn text-uppercase">Donate Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <a href="#">
+                            <h2>@item.PartnerName</h2>
+                            <p>
+                               @{
+                                   string des = "";
+                                   if (item.Description.Length > 160)
+                                   {
+                                       des = item.Description.Substring(0, 160) + "...";
+                                   }
+                                   else
+                                   {
+                                       des = item.Description;
+                                   }
+
+                            }
+                            <span>@des</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                }
+        </div>
+    </div>
+</section>
+<!-- End our partners-->

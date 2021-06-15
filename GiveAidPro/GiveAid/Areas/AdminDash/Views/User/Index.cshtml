@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_User>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Email)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.tbl_UserType.UserTypeName)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.FullName</td>
+                            <td>@item.Email</td>
+                            <td>@item.tbl_UserType.UserTypeName</td>
+                            <td>
+                                @Ajax.ActionLink("View Details", "Details", "User",
+                                   new { id = item.PK_ID },
+                                   new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "modal-container"
+                                   },
+                                   new
+                                   {
+                                       @class = "btn btn-outline-primary btn-sm"
+                                   })
+
+                            </td>
+                        </tr>
+                                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

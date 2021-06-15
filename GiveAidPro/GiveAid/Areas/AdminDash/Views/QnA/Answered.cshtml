@@ -1,0 +1,80 @@
+﻿
+@model IEnumerable<GiveAid.Models.tbl_QnA>
+
+@{
+    ViewBag.Title = "Resolved Queries";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <a class="btn btn-outline-success btn-sm" href="/AdminDash/QnA/Index">Go Back</a>
+                        </th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Question)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.tbl_User.FullName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.DateTime)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @{
+                                    string des = "";
+                                    if (item.Question.Length > 40)
+                                    {
+                                        des = item.Question.Substring(0, 40) + "...";
+                                    }
+                                    else
+                                    {
+                                        des = item.Question;
+                                    }
+
+                                }
+                                <span>@des</span><br />
+                            </td>
+                            <td>@item.tbl_User.FullName</td>
+                            <td>@item.DateTime.Value.Date</td>
+                            <td>
+                                @Ajax.ActionLink("View Details", "Details", "QnA",
+                                   new { id = item.PK_ID },
+                                   new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "modal-container"
+                                   },
+                                   new
+                                   {
+                                       @class = "btn btn-outline-primary btn-sm"
+                                   })
+
+                            </td>
+                        </tr>
+                                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

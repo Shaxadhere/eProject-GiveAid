@@ -1,0 +1,42 @@
+﻿@model GiveAid.Models.Invitation
+@{
+    ViewBag.Title = "Invite Friends";
+}
+
+<div class="card-body border-top">
+    <h3 class="text-center">Invite More and More Friends to help the campaign</h3>
+    <p class="text-center">
+        We help people worldwide who are suffering from issues cause of poverty, it's been years we are struggling and working hard to provide
+        proper education, food, clean water and many more life essentials, you can help by donating your part and by inviting your friends and loved ones to
+        show some support
+    </p>
+</div>
+
+<div class="container">
+    <div class="text-center">
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cda85c194335aaf"></script>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox"></div>
+    </div>
+</div>
+
+<section class="cd-timeline js-cd-timeline">
+    <div class="cd-timeline__container">
+        @foreach (var item in ViewBag.events)
+        {
+            <div class="cd-timeline__block js-cd-block">
+                <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+                    <img src="~/Templates/backend/assets/vendor/timeline/img/cd-icon-picture.svg" alt="Picture">
+                </div>
+                <div class="cd-timeline__content js-cd-content">
+                    <h3>@item.Title</h3>
+                    <p>@item.Description</p>
+                    <a href="/User/Donation/Create" class="btn btn-primary btn-lg">Donate Now</a>
+                    <span class="cd-timeline__date">@item.DateTime</span>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+

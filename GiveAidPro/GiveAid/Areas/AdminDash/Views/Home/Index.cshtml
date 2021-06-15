@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="row">
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Partners</h5>
+                    <h2 class="mb-0">@ViewBag.partner</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">NGOs</h5>
+                    <h2 class="mb-0">@ViewBag.ngo</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Achievements</h5>
+                    <h2 class="mb-0">@ViewBag.achieve</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-inline-block">
+                    <h5 class="text-muted">Team Members</h5>
+                    <h2 class="mb-0">@ViewBag.team</h2>
+                </div>
+                <div class="float-right icon-circle-medium  icon-box-lg  bg-secondary-light mt-1">
+                    <i class="fa fa-handshake fa-fw fa-sm text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Months', 'Donations'],
+              ['2004', 20000],
+              ['2005', 25000],
+              ['2006', 18000],
+              ['2007', 19000],
+              ['2008', 35000],
+              ['2009', 32000],
+              ['2010', 17000],
+              ['2011', 25000],
+              ['2012', 34000],
+              ['2013', 36000],
+              ['2014', 28000],
+              ['2015', 19000],
+              ['2016', 14000],
+              ['2017', 10000],
+              ['2018', 16000],
+              ['2019', 26000]
+            ]);
+
+            var options = {
+                title: 'Donations',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+
+</div>

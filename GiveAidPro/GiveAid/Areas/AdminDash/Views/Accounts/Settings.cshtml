@@ -1,0 +1,56 @@
+﻿@using GiveAid.Models
+
+@{
+    ViewBag.Title = "Account Settings";
+    tbl_User user = (tbl_User)Session["User"];
+    if (user == null)
+    {
+        user = new db_GiveAidProEntities1().tbl_User.FirstOrDefault(x => x.Email == User.Identity.Name);
+    }
+}
+
+<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+    <div class="card card-fluid">
+
+        <div class="card-body text-center">
+
+            <a href="user-profile.html" class="user-avatar my-3">
+                @if (user.Picture != null)
+                {
+                    <img src="~/Templates/Frontend/img/@user.Picture" alt="User Avatar" class="rounded-circle user-avatar-xl">
+                }
+                else
+                {
+                    <img src="~/Templates/Frontend/img/userdefault.jpeg" alt="" class="user-avatar-md rounded-circle">
+                }
+            </a>
+
+            <h3 class="card-title mb-2 text-truncate">
+                <a href="user-profile.html">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @user.FullName
+                    }
+                </a>
+            </h3>
+            <p class="text-muted">
+                @if (user.Email != null)
+                {
+                    <span>@user.Email</span>
+                }
+                else
+                {
+                    <a href="/Account/EditInfo">Add Email</a>
+                }
+
+            </p>
+            <p>
+                <a href="/Account/EditInfo" class="btn btn-primary">
+                    Edit Info
+                    <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </p>
+        </div>
+
+    </div>
+</div>

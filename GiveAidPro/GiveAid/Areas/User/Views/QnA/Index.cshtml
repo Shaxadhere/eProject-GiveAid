@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_QnA>
+
+@{
+    ViewBag.Title = "All Queries";
+}
+
+<p>
+    @Ajax.ActionLink("Raise a Query", "Create", "Activity",
+                            new AjaxOptions()
+                            {
+                                HttpMethod = "GET",
+                                InsertionMode = InsertionMode.Replace,
+                                UpdateTargetId = "modal-container"
+                            },
+                            new
+                            {
+                                @class = "btn btn-outline-success btn-sm"
+                            })
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">Query ID @Html.DisplayFor(modelItem => item.PK_ID)</h5>
+                <div class="card-body">
+                    <div class="media">
+                        <img class="mr-3 user-avatar-lg rounded" src="~/Templates/Frontend/img/@Html.DisplayFor(modelItem => item.tbl_User.Picture)" alt="Profile Picture">
+                        <div class="media-body">
+                            <h5 class="mt-0">@Html.DisplayFor(modeItem => item.tbl_User.FullName)</h5> @Html.DisplayFor(modelItem => item.Question)
+                            @{
+                                var answer = item.Answer;
+                            }
+                            @if (answer != null)
+                            {
+                                <hr />
+                                <div class="media mt-3">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">Answer</h5> @Html.DisplayFor(modelItem => item.Answer)
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                }
+</div>

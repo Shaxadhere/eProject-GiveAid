@@ -1,0 +1,56 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_QnA>
+@{
+    ViewBag.Title = "Help Centre";
+}
+<style>
+    .media.helpcentree {
+        padding: 80px 0 0 0;
+    }
+
+    img.mr-3.user-avatar-lg.rounded {
+        height: auto;
+        width: 100%;
+        max-width: 60px !important;
+        overflow: hidden !important;
+    }
+</style>
+
+<section class="banner-about relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1>
+                    Help <br>
+                    Centre
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="aboutus">
+    
+    <div class="container">
+        <div class="text-center">
+            <h2>Help Centre</h2>
+            <p>Here are some of the questions that might be in your head, if your question is not already answered you can ask questions by signing up or logging in</p>
+        </div>
+            @foreach (var item in Model)
+            {
+        <div class="media helpcentree">
+                <img class="mr-3 user-avatar-lg rounded" src="~/Templates/Frontend/img/@item.tbl_User.Picture" alt="@item.tbl_User.FullName">
+                <div class="media-body">
+                    <h5 class="mt-0">@item.tbl_User.FullName</h5> @item.Question
+                    @if (item.Answer != null)
+                    {
+                        <div class="media mt-3">
+                            <div class="media-body">
+                                <h5 class="mt-0">Answer</h5> @item.Answer
+                            </div>
+                        </div>
+                    }
+                </div>
+        </div>
+            }
+    </div>
+</section>

@@ -1,0 +1,125 @@
+﻿@model GiveAid.Models.tbl_NGO
+
+@{
+    ViewBag.Title = "Edit Info";
+    var causes = (List<GiveAid.Models.tbl_DonationCause>)ViewBag.causes;
+    Layout = null;
+
+}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("Edit", "NGO",
+            new AjaxOptions
+            {
+                HttpMethod = "POST",
+                OnSuccess = "Success",
+            },
+            new
+            {
+                @enctype = "multipart/form-data"
+            }))
+            {
+                <div class="modal-header">
+                    <h4 class="modal-title">@ViewBag.Title</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    <div id="modelerrors" class="text-danger"></div>
+                    @Html.HiddenFor(model => model.PK_ID)
+                    <div id="modelerrors" class="text-danger"></div>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NGOName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NGOName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NGOName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" name="Logo" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                @foreach (var item in causes)
+                                {
+                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                                        <label>
+                                            <input id="cause-@item.PK_ID" value="@item.PK_ID" type="checkbox" name="causes" class="my-checkbox checkbox custom-checkbox" />
+                                            @item.DonationCauseName
+                                        </label><br>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="selectedcauses" name="selectedcauses" />
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="submit" onmousedown="SaveCausesByNgo()" value="Create" class="btn btn-outline-primary btn-sm" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function SaveCausesByNgo() {
+        var ChkArr = [];
+        $('input[name="causes"]:checked').each(function () {
+            ChkArr.push($(this).val());
+        });
+        $('#selectedcauses').val(ChkArr.join(","));
+    }
+
+
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+
+
+    var Success = function (data) {
+        if (data.success == true) {
+            $('#myModal').modal('hide');
+            location.reload();
+        }
+        else {
+            $('#modelerrors').html(data.errors);
+        }
+    }
+</script>

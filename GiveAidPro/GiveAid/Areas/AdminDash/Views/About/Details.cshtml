@@ -1,0 +1,49 @@
+﻿@model GiveAid.Models.tbl_About
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_About</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.What_We_Do)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.What_We_Do)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Our_Mission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Our_Mission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Career_With_Us)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Career_With_Us)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.About_Us)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.About_Us)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PK_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_Activity>
+
+@{
+    ViewBag.Title = "Upcoming Events";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <img class="card-img-top img-fluid"src="~/Templates/Frontend/img/@item.Picture" alt="@item.Picture">
+                <div class="card-body">
+                    <h3 class="card-title">@item.Title</h3>
+                    <p class="card-text">
+                        @{
+                        string des = "";
+                        if (item.Description.Length > 50)
+                        {
+                            des = item.Description.Substring(0, 50) + "...";
+                        }
+                        else
+                        {
+                            des = item.Description;
+                        }
+
+                        }
+                        @des
+                    </p>
+                    @Ajax.ActionLink("View Details", "Details", "IntrestActivities",
+                     new { id = item.PK_ID },
+                     new AjaxOptions()
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "modal-container"
+                     },
+                     new
+                     {
+                         @class = "btn btn-outline-primary btn-sm"
+                     })
+                </div>
+            </div>
+        </div>
+                            }
+</div>

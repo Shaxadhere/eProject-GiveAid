@@ -1,0 +1,187 @@
+﻿
+
+
+@{
+    ViewBag.Title = "About Us";
+}
+
+<section class="banner-about relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-start" style="height: 915px;">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1>
+                    About <br>
+                    Us
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="aboutus">
+    <div class="container">
+
+        <div class="col-md-12 animatedParent aboutcontent">
+            <div class="panel-group animated fadeInUp go" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                About Us
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            @if (ViewBag.Abt != null)
+                           	{
+                           		foreach (var item in ViewBag.Abt)
+                                {
+                                   <p>@item.About_Us</p>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Our Mission
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
+                        <div class="panel-body">
+                            @if (ViewBag.Abt != null)
+                            {
+                                foreach (var item in ViewBag.Abt)
+                                {
+                                    <p>@item.Our_Mission</p>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Career With Us
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
+                        <div class="panel-body">
+                            @if (ViewBag.Abt != null)
+                            {
+                                foreach (var item in ViewBag.Abt)
+                                {
+                                    <p>@item.Career_With_Us</p>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                            <a class="btn btn-outline-primary" href="/Home/Contact">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Our Achievements
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false">
+                        <div class="panel-body">
+                            @if (ViewBag.Ach != null)
+                            {
+                                foreach (var item in ViewBag.Ach)
+                                {
+                                    <div class="col-lg-2 col-md-2 our_achievements">
+                                        <h3>@item.Name</h3>
+                                        <p>@item.Description</p>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Our Supporters
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
+                        <div class="panel-body">
+                            @if (ViewBag.Part != null)
+                            {
+                                foreach (var item in ViewBag.Part)
+                                {
+                                    <div class="col-lg-2 col-md-2 our_achievements">
+                                        <h3>@item.PartnerName</h3>
+                                        <p>@item.Website</p>
+                                        <p>@item.Description</p>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseFive">
+                                Our Team
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
+                        <div class="panel-body">
+                            @if (ViewBag.Team != null)
+                            {
+                                foreach (var item in ViewBag.Team)
+                                {
+                                    <div class="col-lg-2 col-md-2 our_achievements">
+                                        <h3>@item.Name</h3>
+                                        <p>@item.Description</p>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p>There's no data </p>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+

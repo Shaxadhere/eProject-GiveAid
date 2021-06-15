@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GiveAid.Models.tbl_Donation>
+@{
+    ViewBag.Title = "All Donations";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#listofall').DataTable();
+    });
+</script>
+
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover" id="listofall">
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/AdminDash/DonationCause/Index" class="btn btn-outline-primary btn-sm">Donation Casue</a></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.tbl_User.FullName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.tbl_NGO.NGOName)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Amount)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.tbl_User.FullName</td>
+                            <td>@item.tbl_NGO.NGOName</td>
+                            <td>@item.Amount</td>
+                            <td>
+                                @Ajax.ActionLink("View Details", "Details", "Donation",
+                                   new { id = item.PK_ID },
+                                   new AjaxOptions()
+                                   {
+                                       HttpMethod = "GET",
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "modal-container"
+                                   },
+                                   new
+                                   {
+                                       @class = "btn btn-outline-primary btn-sm"
+                                   })
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
